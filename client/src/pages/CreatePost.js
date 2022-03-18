@@ -14,7 +14,7 @@ function CreatePost() {
 
   useEffect(() => {
     if (!localStorage.getItem("accessToken")) {
-      navigate('/login')
+      navigate('/login');
     }
   }, []);
   const validationSchema = Yup.object().shape({
@@ -43,8 +43,9 @@ function CreatePost() {
           <label>Title: </label>
           <ErrorMessage name="title" component="span" />
           <Field
+            className = "fieldInput"
             autocomplete="off"
-            id="inputCreatePost"
+            id="title"
             name="title"
             placeholder="(Ex. Title...)"
           />
@@ -52,7 +53,8 @@ function CreatePost() {
           <ErrorMessage name="postText" component="span" />
           <Field
             autocomplete="off"
-            id="inputCreatePost"
+            className = "fieldInput"
+            id="postText"
             name="postText"
             placeholder="(Ex. Post...)"
           />
