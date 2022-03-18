@@ -1,14 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
-import { AuthContext } from "../helpers/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function CreatePost() {
-  const { authState } = useContext(AuthContext);
 
-  let history = useHistory();
+  const navigate  = useNavigate();
   const initialValues = {
     title: "",
     postText: "",
@@ -16,7 +14,7 @@ function CreatePost() {
 
   useEffect(() => {
     if (!localStorage.getItem("accessToken")) {
-      history.push("/login");
+      navigate('/login')
     }
   }, []);
   const validationSchema = Yup.object().shape({
@@ -30,7 +28,7 @@ function CreatePost() {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then((response) => {
-        history.push("/");
+        navigate('/')
       });
   };
 

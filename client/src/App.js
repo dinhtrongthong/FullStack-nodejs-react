@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import CreatePost from "./pages/CreatePost";
 import Post from "./pages/Post";
@@ -68,16 +68,16 @@ function App() {
               {authState.status && <button onClick={logout}> Logout</button>}
             </div>
           </div>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/createpost" exact component={CreatePost} />
-            <Route path="/post/:id" exact component={Post} />
-            <Route path="/registration" exact component={Registration} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/profile/:id" exact component={Profile} />
-            <Route path="/changepassword" exact component={ChangePassword} />
-            <Route path="*" exact component={PageNotFound} />
-          </Switch>
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/createpost" exact element={<CreatePost />} />
+            <Route path="/post/:id" exact element={<Post />} />
+            <Route path="/registration" exact element={<Registration />} />
+            <Route path="/login" exact element={<Login />} />
+            <Route path="/profile/:id" exact element={<Profile />} />
+            <Route path="/changepassword" exact element={<ChangePassword />} />
+            <Route path="*" exact component={<PageNotFound />} />
+          </Routes>
         </Router>
       </AuthContext.Provider>
     </div>

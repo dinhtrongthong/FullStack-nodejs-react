@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../helpers/AuthContext";
 
 function Profile() {
   let { id } = useParams();
-  let history = useHistory();
+  let navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [listOfPosts, setListOfPosts] = useState([]);
   const { authState } = useContext(AuthContext);
@@ -28,7 +28,7 @@ function Profile() {
         {authState.username === username && (
           <button
             onClick={() => {
-              history.push("/changepassword");
+              navigate("/changepassword");
             }}
           >
             {" "}
@@ -44,7 +44,7 @@ function Profile() {
               <div
                 className="body"
                 onClick={() => {
-                  history.push(`/post/${value.id}`);
+                  navigate(`/post/${value.id}`);
                 }}
               >
                 {value.postText}
