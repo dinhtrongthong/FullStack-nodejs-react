@@ -43,6 +43,7 @@ function Post() {
           const commentToAdd = {
             commentBody: newComment,
             username: response.data.username,
+            id: response.data.id,
           };
           setComments([...comments, commentToAdd]);
           setNewComment("");
