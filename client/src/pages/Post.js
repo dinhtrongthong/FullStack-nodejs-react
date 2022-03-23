@@ -13,6 +13,9 @@ function Post() {
   let navigate = useNavigate();
 
   useEffect(() => {
+    if (!localStorage.getItem("accessToken")) {
+      navigate('/login');
+    }
     axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
       setPostObject(response.data);
     });

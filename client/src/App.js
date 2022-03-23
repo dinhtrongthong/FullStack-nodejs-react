@@ -7,6 +7,7 @@ import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import Profile from "./pages/Profile";
+import Note from "./pages/Note";
 import ChangePassword from "./pages/ChangePassword";
 
 import { AuthContext } from "./helpers/AuthContext";
@@ -60,6 +61,7 @@ function App() {
                 <>
                   <Link to="/"> Home Page</Link>
                   <Link to="/createpost"> Create A Post</Link>
+                  <Link to="/note"> Notes</Link>
                 </>
               )}
             </div>
@@ -71,6 +73,7 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/createpost" exact element={<CreatePost />} />
+            <Route path="/note" exact element={<Note />} />
             <Route path="/post/:id" exact element={<Post />} />
             <Route path="/registration" exact element={<Registration />} />
             <Route path="/login" exact element={<Login />} />
@@ -81,6 +84,7 @@ function App() {
         </Router>
       </AuthContext.Provider>
     </div>
+    
   );
 }
 

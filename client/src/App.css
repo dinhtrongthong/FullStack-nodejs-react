@@ -279,3 +279,15 @@ button {
 .loginContainer input {
   border: 2px solid dodgerblue;
 }
+
+
+/* src/components/ShowNote.css */
+textarea {
+  background-color: rgba(0, 0, 0, 0);
+  border-width: 0;
+  overflow: hidden;
+  resize: none;
+}
+textarea:focus{
+  outline: none;
+}
